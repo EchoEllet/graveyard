@@ -1,0 +1,170 @@
+# If you change any of the values, make sure to run `dart ./scripts/generate_pubspec_dart_code.dart` to reflect the changes in dart code
+# otherwise tests will fail and the data in dart code might not be up to date with this file
+name: alrayada
+description: "Work in progress..."
+version: 0.0.1-experimental+1
+repository: https://github.com/FreshKernel/alrayada
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+# The versions listed here indicate the minimum required for dependencies.
+# For more information, visit:
+# https://dart.dev/tools/pub/dependencies#version-constraints
+# https://docs.flutter.dev/packages-and-plugins/using-packages#conflict-resolution
+# https://dart.dev/tools/pub/versioning
+# https://dart.dev/guides/libraries/private-files#pubspec-lock
+# https://dart.dev/tools/pub/pubspec#sdk-constraints
+# https://dart.dev/tools/pub/versioning#semantic-versions
+# https://dart.dev/tools/pub/dependencies#tighten-version-constraints-for-dev-dependencies
+# https://dart.dev/tools/pub/dependencies#dependency-overrides
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Packages
+  intl: ^0.19.0
+  path: ^1.9.0
+  go_router: ^14.2.7
+  flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+  hydrated_bloc: ^9.1.5
+  linkify_plus: ^6.0.3
+  carousel_slider: ^5.0.0
+  smooth_page_indicator: ^1.2.0
+  lottie: ^3.1.2
+  cached_network_image: ^3.4.0
+  flutter_svg: ^2.0.10
+  web_socket_channel: ^3.0.1
+  cupertino_stepper: ^0.2.1
+  flutter_platform_widgets: ^7.0.1
+  dio: ^5.6.0
+  http_parser: ^4.0.2
+  mime: ^2.0.0
+  pretty_dio_logger: ^1.4.0
+  flutter_dotenv: ^5.1.0
+  flutter_animate: ^4.5.0
+  google_fonts: ^6.2.1
+  cross_file: ^0.3.4
+  # async: any
+  # result_dart: ^1.1.1
+
+  equatable: ^2.0.5
+  logger: ^2.4.0
+
+  # For code generator
+  json_annotation: ^4.9.0
+  freezed_annotation: ^2.4.4
+
+  # Plugins
+  url_launcher: ^6.3.0
+  path_provider: ^2.1.4
+  # sqflite: ^2.3.3 # TODO: Replace sqflite with drift or floor
+  connectivity_plus: ^6.0.5
+  shared_preferences: ^2.3.2
+  flutter_secure_storage: ^9.2.2
+  device_info_plus: ^10.1.2
+  firebase_core: ^3.4.0
+  firebase_crashlytics: ^4.1.0
+  firebase_analytics: ^11.3.0
+  firebase_messaging: ^15.1.0
+  google_sign_in: ^6.2.1
+  sign_in_with_apple: ^6.1.2
+  dynamic_color: ^1.7.0
+  image_picker: ^1.1.2
+  image_picker_platform_interface: ^2.10.0
+  # For using Android 13 photo picker
+  image_picker_android: ^0.8.12
+
+  # Switch to the pub.dev version after https://github.com/MixinNetwork/flutter-plugins/pull/351
+  # is published
+  desktop_drop:
+    git:
+      url: https://github.com/MixinNetwork/flutter-plugins.git
+      path: packages/desktop_drop
+      ref: d1c9369331518fec50ca02ddc05ec403eace0c1f
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  # build_verify: ^3.1.0
+  build_runner: ^2.4.12
+  freezed: ^2.5.7
+  json_serializable: ^6.8.0
+  flutter_gen_runner: ^5.7.0
+  icons_launcher: ^3.0.0
+  flutter_native_splash: ^2.4.1
+  bloc_test: ^9.1.7
+  test: ^1.24.9
+  yaml: ^3.1.2 # For scripts/tests
+  # pubspec_extract: ^2.0.5
+  # pubspec_generator: ^4.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    # Svg folder
+    - assets/svg/icons/
+    - assets/svg/payment_methods/
+
+    # Images folder
+    - assets/images/
+    - assets/images/payment_methods/
+
+    # Lottie folder
+    - assets/lottie/no_internet/
+    - assets/lottie/page_not_found/
+    - assets/lottie/onboarding/
+    - assets/lottie/auth/
+    - assets/lottie/errors/
+    - assets/lottie/no_data_found/
+    
+    - .env
+
+
+flutter_gen:
+  output: lib/common/gen/
+
+  integrations:
+    flutter_svg: true
+    lottie: true
+
+icons_launcher:
+  image_path: "dev_assets/icon_launcher.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+    macos:
+      enable: true
+    windows:
+      enable: true
+    linux:
+      enable: false
+    web:
+      enable: true
+
+flutter_native_splash:
+  # Light
+  image: "dev_assets/splash_logo.png"
+  color: "#DEE2E2"
+
+  # Dark
+  image_dark: "dev_assets/splash_logo.png"
+  color_dark: "#272727"
+  
+  # android_12:
+  #   image: "dev_assets/splash_logo.png"
+
+pubspec_extract:
+  destination: lib/common/gen/pubspec.g.dart
